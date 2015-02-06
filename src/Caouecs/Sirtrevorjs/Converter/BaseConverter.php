@@ -79,7 +79,7 @@ class BaseConverter
      * @param string $viewName Name of the base view
      * @param array $params Params
      */
-    public function view($viewName, $params = array())
+    public function view($viewName, $params = [])
     {
         if (isset($this->config['view']) && View::exists($this->config['view'].".".$viewName)) {
             return View::make($this->config['view'].".".$viewName, $params);

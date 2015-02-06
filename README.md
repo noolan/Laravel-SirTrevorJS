@@ -1,16 +1,13 @@
 Laravel-SirTrevorJS
 ====================
 
-Integrate the tool [Sir Trevor JS](http://madebymany.github.io/sir-trevor-js/) in a [Laravel 4/5](http://laravel.com) project.
+Integrate the tool [Sir Trevor JS](http://madebymany.github.io/sir-trevor-js/) in a [Laravel 5](http://laravel.com) project.
 
 ## Installation
 
 This package is available through `Packagist` and `Composer`.
 
-* add to your composer.json `"caouecs/sirtrevorjs": "dev-master"` at your own risk
-* or add to your composer.json `"caouecs/sirtrevorjs": "~1.4"` for stable version
-* or run `composer require caouecs/sirtrevorjs`
-* or you can use [Package Installer](https://github.com/rtablada/package-installer), Laravel-SirTrevorJS has a valid provides.json file. After installation of Package Installer, just run `php artisan package:install caouecs/sirtrevorjs` ; the lists of providers and aliases will be up-to-date.
+* add to your composer.json `"caouecs/sirtrevorjs": "2.0.*@dev"` for Laravel 5
 
 ### Aliases
 
@@ -25,7 +22,7 @@ If you want to use routing, controllers, views directly in your project, in your
 
 ### thujohn/twitter
 
-To get tweets, this project uses [twitter-l4](https://github.com/thujohn/twitter-l4), so you must have a valid developer account of Twitter and add config file of twitter-l4 :
+To get tweets, this project uses [twitter-l4](https://github.com/thujohn/twitter-l4), the laravel 5 version, so you must have a valid developer account of Twitter and add config file of twitter-l4 :
 
     php artisan config:publish thujohn/twitter
 
@@ -107,7 +104,7 @@ This project proposes a system for upload image, nothing to configure, just the 
 
 The uploader is in *SirTrevorJsController* class, and the project has a *route.php* file for it.
 
-    Route::any("/sirtrevorjs/upload", array("uses" => "SirTrevorJsController@upload"));
+    Route::any("/sirtrevorjs/upload", ["uses" => "SirTrevorJsController@upload"]);
 
 ### Tweet
 
@@ -117,7 +114,7 @@ The installation of twitter-l4 is done by Composer, but you need to configure it
 
 The tweet converter is in *SirTrevorJsController* class, and the project has a *route.php* file for it.
 
-    Route::any("/sirtrevorjs/tweet", array("uses" => "SirTrevorJsController@tweet"));
+    Route::any("/sirtrevorjs/tweet", ["uses" => "SirTrevorJsController@tweet"]);
 
 ## SirTrevorJsConverter class (or STConverter class)
 

@@ -22,10 +22,10 @@ class SoundConverter extends BaseConverter implements ConverterInterface
      * @access protected
      * @var array
      */
-    protected $types = array(
+    protected $types = [
         "soundcloud",
         "spotify"
-    );
+    ];
 
     /**
      * Soundcloud block
@@ -35,11 +35,15 @@ class SoundConverter extends BaseConverter implements ConverterInterface
      */
     public function soundcloudToHtml()
     {
-        $theme = (isset($this->config['soundcloud']) && $this->config['soundcloud'] === "full") ? "full" : "small";
+        $theme = array_get($this->config, 'soundcloud');
 
-        return $this->view("sound.soundcloud.".$theme, array(
+        if ($theme !== "full") {
+            $theme = "small";
+        }
+
+        return $this->view("sound.soundcloud.".$theme, [
             "remote" => $this->data['remote_id']
-        ));
+        ]);
     }
 
     /**
@@ -50,9 +54,9 @@ class SoundConverter extends BaseConverter implements ConverterInterface
      */
     public function spotifyToHtml()
     {
-        return $this->view("sound.spotify", array(
+        return $this->view("sound.spotify", [
             "remote" => $this->data['remote_id'],
             "options" => $this->config['spotify']
-        ));
+        ]);
     }
 }

@@ -31,13 +31,13 @@ class TextConverter extends BaseConverter implements ConverterInterface
      * @access protected
      * @var array
      */
-    protected $types = array(
+    protected $types = [
         "text",
         "markdown",
         "quote",
         "blockquote",
         "heading"
-    );
+    ];
 
     /**
      * Construct
@@ -61,9 +61,9 @@ class TextConverter extends BaseConverter implements ConverterInterface
      */
     public function textToHtml()
     {
-        return $this->view("text.text", array(
+        return $this->view("text.text", [
             "text" => $this->markdown->text($this->data['text'])
-        ));
+        ]);
     }
 
     /**
@@ -85,9 +85,9 @@ class TextConverter extends BaseConverter implements ConverterInterface
      */
     public function headingToHtml()
     {
-        return $this->view("text.heading", array(
+        return $this->view("text.heading", [
             "text" => $this->data['text']
-        ));
+        ]);
     }
 
     /**
@@ -99,10 +99,10 @@ class TextConverter extends BaseConverter implements ConverterInterface
     public function blockquoteToHtml()
     {
         // remove the indent thats added by Sir Trevor
-        return $this->view("text.blockquote", array(
+        return $this->view("text.blockquote", [
             "cite" => $this->data['cite'],
             "text" => $this->markdown->text(ltrim($this->data['text'], '>'))
-        ));
+        ]);
     }
 
     /**

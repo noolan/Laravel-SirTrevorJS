@@ -59,11 +59,11 @@ class SirTrevorJsController extends Controller
             }
 
             if ($file->move(public_path($config['directory_upload']), $filename)) {
-                $return = array(
-                    "file" => array(
+                $return = [
+                    "file" => [
                         "url" => "/".$config['directory_upload']."/".$filename
-                    )
-                );
+                    ]
+                ];
 
                 echo json_encode($return);
             }
@@ -87,17 +87,17 @@ class SirTrevorJsController extends Controller
         $tweet = Tweet::getTweet($tweet_id);
 
         if ($tweet !== false && !empty($tweet)) {
-            $return = array(
+            $return = [
                 "id_str"     => $tweet_id,
                 "text"       => $tweet->text,
                 "created_at" => $tweet->created_at,
-                "user"       => array(
+                "user"       => [
                     "name"                    => $tweet->user->name,
                     "screen_name"             => $tweet->user->screen_name,
                     "profile_image_url"       => $tweet->user->profile_image_url,
                     "profile_image_url_https" => $tweet->user->profile_image_url_https
-                )
-            );
+                ]
+            ];
 
             echo json_encode($return);
         }

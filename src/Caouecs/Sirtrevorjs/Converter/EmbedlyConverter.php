@@ -22,9 +22,9 @@ class EmbedlyConverter extends BaseConverter implements ConverterInterface
      * @access protected
      * @var array
      */
-    protected $types = array(
+    protected $types = [
         "embedly"
-    );
+    ];
 
     /**
      * Render of embedly
@@ -38,10 +38,10 @@ class EmbedlyConverter extends BaseConverter implements ConverterInterface
         if (filter_var($this->data['url'], FILTER_VALIDATE_URL)) {
             $codejs['embedly'] = '<script async src="//cdn.embedly.com/widgets/platform.js" charset="UTF-8"></script>';
 
-            return $this->view("embedly.".$this->type, array(
+            return $this->view("embedly.".$this->type, [
                 "url" => $this->data['url'],
                 "options" => array_get($this->config, 'embedly')
-            ));
+            ]);
         }
 
         return null;

@@ -34,7 +34,15 @@ class SirTrevorJs
      * @var string
      * @static
      */
-    protected static $blocktypes = array('Text', 'List', 'Quote', 'Image', 'Video', 'Tweet', 'Heading');
+    protected static $blocktypes = [
+        'Text',
+        'List',
+        'Quote',
+        'Image',
+        'Video',
+        'Tweet',
+        'Heading'
+    ];
 
     /**
      * Language of Sir Trevor JS
@@ -86,16 +94,16 @@ class SirTrevorJs
                  * and after it transforms it into an another array for Sir Trevor
                  */
                 if ($data['type'] === "image" && !isset($data['data']['file'])) {
-                    $return[] = array(
+                    $return[] = [
                         "type" => "image",
                         "data" => json_decode(implode($data['data']), true)
-                    );
+                    ];
                 } else {
                     $return[] = $data;
                 }
             }
 
-            return json_encode(array("data" => $return), JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
+            return json_encode(["data" => $return], JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
         }
 
         return null;
@@ -149,7 +157,7 @@ class SirTrevorJs
      * - uploadUrl
      * - tweetUrl
      */
-    public static function scripts(array $params = array())
+    public static function scripts(array $params = [])
     {
         // params
         $config = self::config($params);
@@ -205,7 +213,7 @@ class SirTrevorJs
             $blocktypes = self::$blocktypes;
         }
 
-        return array(
+        return [
             "path"       => $config['path'],
             "script"     => $config['script'],
             "blocktypes" => "'".implode("', '", $blocktypes)."'",
@@ -213,7 +221,7 @@ class SirTrevorJs
             "language"   => self::defineParam("language", $params, $config),
             "uploadUrl"  => self::defineParam("uploadUrl", $params, $config),
             "tweetUrl"   => self::defineParam("tweetUrl", $params, $config)
-        );
+        ];
     }
 
     /**
@@ -225,7 +233,7 @@ class SirTrevorJs
      * @param array $config
      * @return string
      */
-    private static function defineParam($type, $params, $config = array())
+    private static function defineParam($type, $params, $config = [])
     {
         // params
         if (isset($params[$type]) && !empty($params[$type])) {

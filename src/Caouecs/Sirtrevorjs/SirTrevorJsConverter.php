@@ -25,7 +25,7 @@ class SirTrevorJsConverter
      * @access protected
      * @var array
      */
-    protected $blocks = array(
+    protected $blocks = [
         "blockquote"    => "Text",
         "embedly"       => "Embedly",
         "facebook"      => "Social",
@@ -43,7 +43,7 @@ class SirTrevorJsConverter
         "text"          => "Text",
         "tweet"         => "Social",
         "video"         => "Video"
-    );
+    ];
 
     /**
      * Construct

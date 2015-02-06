@@ -47,9 +47,9 @@ class VideoConverter extends BaseConverter implements ConverterInterface
      * @access protected
      * @var array
      */
-    protected $codejs = array(
+    protected $codejs = [
         "vine" => '<script async src="http://platform.vine.co/static/scripts/embed.js" charset="utf-8"></script>'
-    );
+    ];
 
     /**
      * List of types for video
@@ -57,9 +57,9 @@ class VideoConverter extends BaseConverter implements ConverterInterface
      * @access protected
      * @var array
      */
-    protected $types = array(
+    protected $types = [
         "video"
-    );
+    ];
 
     /**
      * Providers with code
@@ -67,7 +67,7 @@ class VideoConverter extends BaseConverter implements ConverterInterface
      * @access protected
      * @var array
      */
-    protected $providers = array(
+    protected $providers = [
         "aol",
         "cplus",
         "dailymailuk",
@@ -91,7 +91,7 @@ class VideoConverter extends BaseConverter implements ConverterInterface
         "yahoo",
         "youtube",
         "zoomin"
-    );
+    ];
 
     /**
      * Construct
@@ -129,10 +129,10 @@ class VideoConverter extends BaseConverter implements ConverterInterface
             }
 
             // View
-            return $this->view("video.".$this->provider, array(
+            return $this->view("video.".$this->provider, [
                 "remote" => $this->remote_id,
                 "caption" => $this->caption
-            ));
+            ]);
         }
 
         return null;

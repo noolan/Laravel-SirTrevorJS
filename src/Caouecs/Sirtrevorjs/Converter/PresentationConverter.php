@@ -22,10 +22,10 @@ class PresentationConverter extends BaseConverter implements ConverterInterface
      * @access protected
      * @var array
      */
-    protected $types = array(
+    protected $types = [
         "slideshare",
         "issuu"
-    );
+    ];
 
     /**
      * Slideshare
@@ -35,9 +35,9 @@ class PresentationConverter extends BaseConverter implements ConverterInterface
      */
     public function slideshareToHtml()
     {
-        return $this->view("presentation.slideshare", array(
+        return $this->view("presentation.slideshare", [
             "remote_id" => $this->data['remote_id']
-        ));
+        ]);
     }
 
     /**
@@ -51,8 +51,8 @@ class PresentationConverter extends BaseConverter implements ConverterInterface
     {
         $codejs['issuu'] = '<script type="text/javascript" src="//e.issuu.com/embed.js" async="true"></script>';
 
-        return $this->view("presentation.issuu", array(
+        return $this->view("presentation.issuu", [
             "remote_id" => $this->data['remote_id']
-        ));
+        ]);
     }
 }

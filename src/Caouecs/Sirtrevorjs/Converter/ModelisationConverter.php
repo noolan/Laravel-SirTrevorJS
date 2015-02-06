@@ -22,9 +22,9 @@ class ModelisationConverter extends BaseConverter implements ConverterInterface
      * @access protected
      * @var array
      */
-    protected $types = array(
+    protected $types = [
         "sketchfab"
-    );
+    ];
 
     /**
      * Sketchfab block
@@ -34,8 +34,8 @@ class ModelisationConverter extends BaseConverter implements ConverterInterface
      */
     public function sketchfabToHtml()
     {
-        return $this->view("modelisation.sketchfab", array(
+        return $this->view("modelisation.sketchfab", [
             "remote_id" => $this->data['remote_id']
-        ));
+        ]);
     }
 }
