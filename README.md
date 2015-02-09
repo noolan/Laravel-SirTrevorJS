@@ -7,7 +7,8 @@ Integrate the tool [Sir Trevor JS](http://madebymany.github.io/sir-trevor-js/) i
 
 This package is available through `Packagist` and `Composer`.
 
-* add to your composer.json `"caouecs/sirtrevorjs": "2.0.*@dev"` for Laravel 5
+* add to your composer.json `"caouecs/sirtrevorjs": "2.0.x-dev"` for Laravel 5
+* add to your composer.json `"thujohn/twitter": "2.0.x-dev"`, if necessary
 
 ### Aliases
 
@@ -22,19 +23,17 @@ If you want to use routing, controllers, views directly in your project, in your
 
 ### thujohn/twitter
 
-To get tweets, this project uses [twitter-l4](https://github.com/thujohn/twitter-l4), the laravel 5 version, so you must have a valid developer account of Twitter and add config file of twitter-l4 :
+To get tweets, this project uses [twitter-l4](https://github.com/thujohn/twitter-l4), the laravel 5 version, so you must have a valid developer account of Twitter and add config file of twitter-l4.
 
-    php artisan config:publish thujohn/twitter
-
-and add `"Thujohn\Twitter\TwitterServiceProvider"` to your list of providers in your `app/config/app.php`.
+ > Please follow instruction in [Github project page](https://github.com/thujohn/twitter-l4/tree/2.0).
 
 ## Configuration file
 
 Next, you must migrate config :
 
-    php artisan config:publish caouecs/sirtrevorjs
+    php artisan vendor:publish
 
-After installation, the config file is located at *app/config/packages/caouecs/sirtrevorjs/sir-trevor-js.php*.
+After installation, the config file is located at *app/config/sir-trevor-js.php*.
 
 You can define :
 
